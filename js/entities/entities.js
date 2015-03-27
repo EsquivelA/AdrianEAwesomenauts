@@ -18,6 +18,7 @@ game.PlayerEntity = me.Entity.extend({
         this.now = new Date().getTime();
         this.lastHit = this.now;
         this.dead = false;
+        this.attack = game.data.playerAttack;
         this.lastAttack = new Date().getTime();
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
 
@@ -128,6 +129,8 @@ game.PlayerEntity = me.Entity.extend({
                     (((xdif>0) && this.facing==="left") || ((xdif<0) && this.facing==="right"))
                     ){
                 this.lastHit = this.now;
+                if(response.b.)
+                
                 response.b.loseHealth(game.data.playerAttack);
             }
         }
