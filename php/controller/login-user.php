@@ -29,7 +29,7 @@
             $array["exp2"] = $row["exp"];
             $array["exp3"] = $row["exp"];
             $array["exp4"] = $row["exp"];
-            
+            $_SESSION["name"] = $username;
             echo json_encode($array);
         }
         else {
