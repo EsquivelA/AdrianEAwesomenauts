@@ -90,11 +90,14 @@ require_once("php/controller/create-db.php");
                 }
             });
         </script>
-
+        <!-- This is for the buttons on the register, and load page -->
         <script>
+            //  If you click mainmenu it will take you to the main menu page
             $("#mainmenu").bind("click", function() {
                 me.state.change(me.state.MENU);
             });
+            // If you click register the username and password must be valid, and if they 
+            // are then it will take you to the play screen
             $("#register").bind("click", function() {
                 $.ajax({
                     type: "POST",
@@ -116,6 +119,8 @@ require_once("php/controller/create-db.php");
                             alert("Fail");
                         });
             });
+            // If you click on load and the username and password are correct 
+            // then it will load your account and take you to the  spend exp page
              $("#load").bind("click", function() {
                 $.ajax({
                     type: "POST",

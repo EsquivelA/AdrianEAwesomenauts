@@ -4,9 +4,17 @@ game.ExperienceManager = Object.extend({
         this.gameover = false;
     },
     update: function() {
+        /**
+         * If you  defeat the enemy base before they destroy yours, it will alert 
+         * you that you have won and takee you to the Menu screen
+         */
         if (game.data.win === true && !this.gameover) {
             this.gameOver(true);
             alert("YOU WIN!");
+        /**
+         * If they defeat your base before you destroy the enemy base, it will alert 
+         * you that you have lost and takee you to the Menu screen
+         */
         } else if (game.data.win === false && !this.gameover) {
             this.gameOver(false);
             alert("YOU LOSE!");
@@ -15,6 +23,9 @@ game.ExperienceManager = Object.extend({
         return true;
    },
     gameOver: function(win) {
+        /**
+         * If you win you will get 10 exp, but if you lose you will get 1 exp
+         */
         if (win) {
             game.data.exp += 10;
         } else {

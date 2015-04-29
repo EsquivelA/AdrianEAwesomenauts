@@ -4,7 +4,10 @@ game.TitleScreen = me.ScreenObject.extend({
 	 */
 	onResetEvent: function() {	
 		me.game.world.addChild(new me.Sprite(0, 0, me.loader.getImage('title-screen')), -10); // TODO
-                
+                /**
+                 * this starts a new game, when you click on START A NEW GAME it
+                 * takes you to the reister page
+                 */
                 me.game.world.addChild(new (me.Renderable.extend({
                     init: function(){
                         this._super(me.Renderable, 'init', [270, 240, 300, 50]);
@@ -25,7 +28,10 @@ game.TitleScreen = me.ScreenObject.extend({
                         me.state.change(me.state.NEW);
                     }
                 })));
-                
+                /**
+                 * This lets you continue, when you click CONTINUE it takes you 
+                 * to the load page     
+                 */
                  me.game.world.addChild(new (me.Renderable.extend({
                     init: function(){
                         this._super(me.Renderable, 'init', [380, 340, 250, 50]);

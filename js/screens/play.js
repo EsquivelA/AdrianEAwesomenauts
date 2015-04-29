@@ -8,7 +8,9 @@ game.PlayScreen = me.ScreenObject.extend({
                 me.levelDirector.loadLevel("Level01");
                 
                 this.resetPlayer(0,420);
-                
+                /**
+                 * These create variables for our Managers
+                 */
                 var gameTimerManager = me.pool.pull("GameTimerManager", 0, 0, {});
                 me.game.world.addChild(gameTimerManager, 0);
                 
@@ -21,6 +23,10 @@ game.PlayScreen = me.ScreenObject.extend({
                 var spendGold = me.pool.pull("SpendGold", 0, 0, {});
                 me.game.world.addChild(spendGold, 0);
                 
+                /**
+                 * These bind the buttons to do attacks, to walk, jump, and to 
+                 * puchase skills 
+                 */
                 me.input.bindKey(me.input.KEY.B, "buy");
                 me.input.bindKey(me.input.KEY.Q, "skill1");
                 me.input.bindKey(me.input.KEY.W, "skill2");
