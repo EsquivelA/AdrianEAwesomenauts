@@ -10,7 +10,10 @@ game.SpendGold = Object.extend({
     
     update: function(){
         this.now = new Date().getTime();
-        
+        /**
+         * if this.buying is true then start buying, if this.buying is false 
+         * then stop buying
+         */
         if(me.input.isKeyPressed("buy") && this.now-this.lastBuy >=1000){
             this.lastBuy = this.now;
             if(!this.buying){
@@ -53,6 +56,9 @@ game.SpendGold = Object.extend({
                     }, 
                     
                     draw: function(renderer){
+                        /**
+                         * Text for the spend gold page
+                         */
                         this.font.draw(renderer.getContext(), "PRESS F1-F6 TO BUY, B TO EXIT. Current Gold: ", this.pos.x, this.pos.y);
                         this.font.draw(renderer.getContext(), "Skill 1:Increase Damage. Current Level: " +  game.data.skill1 + " Cost: " +  ((game.data.skill1+1)*10), this.pos.x, this.pos.y + 40);
                         this.font.draw(renderer.getContext(), "Skill 2:Run Faster! Current Level: " +  game.data.skill2 + " Cost: " +  ((game.data.skill2+1)*10), this.pos.x, this.pos.y + 80);
@@ -81,6 +87,9 @@ game.SpendGold = Object.extend({
     },
     
     checkBuyKeys: function(){
+        /**
+         * this makes sure to check the cost before the purchase is made 
+         */
         if(me.input.isKeyPressed("F1")){
             if(this.checkCost(1)){
                 this.makePurchase(1);
@@ -109,6 +118,9 @@ game.SpendGold = Object.extend({
     },
     
     checckCost: function(skill){
+        /**
+         * this makes the cost go up after every purchase
+         */
        if(skill ===1 && (game.data.gold >= ((game.data.skill1+1)*10))){
            return true;
        }else if(skill ===2 && (game.data.gold >= ((game.data.skill2+1)*10))){

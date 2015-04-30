@@ -16,6 +16,8 @@ game.SpendExp = me.ScreenObject.extend({
                  * This is for the cost for exp skills and adds 10 after evrytime 
                  * you level up
                  */
+                console.log(game.data.exp1);
+                console.log(Number(game.data.exp1) + 1);
                 var exp1cost = ((Number(game.data.exp1) + 1) * 10);
                 
                 me.game.world.addChild(new (me.Renderable.extend({
